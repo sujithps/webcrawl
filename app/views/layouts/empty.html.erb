@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%= render 'layouts/meta' %>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= render 'layouts/rails_default' %>
+    <%= render 'layouts/shim' %>
+
+</head>
+<body class="gray-bg">
+
+    <!-- Navbar -->
+    <%= render :partial => 'landing/navbar' %>
+
+    <!-- Devise Flash Messages -->
+    <!-- For landing page, messages in land.html.erb -->
+
+    <!-- Main view  -->
+    <%= yield %>
+
+    <!-- debuggin box -->
+
+    <%= yield :javascript %>
+
+</body>
+</html>
