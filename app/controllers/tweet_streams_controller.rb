@@ -10,6 +10,10 @@ class TweetStreamsController < ApplicationController
     @user_details = twitter_client.user(@user_name)
 
     @follower_count = @user_details.followers_count
+
+    translation_service = TranslationService.new
+    translated_text = translation_service.translate(@user_details.description, 'en')
+    @tokens = translation_service.tokenize_text(translated_text)
   end
 
   def twitter_client

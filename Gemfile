@@ -18,6 +18,9 @@ gem 'sdoc', group: :doc
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem "font-awesome-rails"
+gem 'google-cloud-translate'
+gem 'google-cloud-language'
+
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
@@ -40,6 +43,10 @@ gem 'spring', group: :development
 
 gem "twitter"
 gem "hashie"
+
+group :development do
+  gem 'pry'
+end
 
 group :test do
 end
