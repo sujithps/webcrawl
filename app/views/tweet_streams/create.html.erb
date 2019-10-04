@@ -1,15 +1,123 @@
-<h3>Here's some recents tweets for <%= @user_name %>:</h3>
-<h5>(<%= @user_name %> has <%= @follower_count %> followers)</h5>
-<div>
-  <ul>
-    <% @tweets.each do |tweet| %>
-      <li class="tweet">
-        <p><em><%= tweet.user.screen_name %></em> says: <%= tweet.text %></p>
-      </li>
-    <% end %>
-  </ul>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2><%= @user_details.name %></h2>
+  </div>
 </div>
 
-<p>
-  <%= link_to("try another user", new_tweet_stream_path) %>
-</p>
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox product-detail">
+        <div class="ibox-content">
+
+          <div class="row">
+            <div class="col-md-12">
+              <div>
+                <div class="a-slide slide1">
+                  <img src="<%= @user_details.profile_image_url %>" class="img-fluid" alt="Responsive image">
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-md-12">
+              <label class="col-sm-2 control-label">Location : </label>
+              <div class="col-sm-10">
+                <%= @user_details.location || '-' %>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <label class="col-sm-2 control-label">Followers Count : </label>
+              <div class="col-sm-10">
+                <%= @user_details.followers_count || '-' %>
+              </div>
+            </div>
+
+
+            <div class="col-md-12">
+              <label class="col-sm-2 control-label">Friends Count : </label>
+              <div class="col-sm-10">
+                <%= @user_details.friends_count || '-' %>
+              </div>
+            </div>
+
+
+            <div class="col-md-12">
+              <label class="col-sm-2 control-label">Created At : </label>
+              <div class="col-sm-10">
+                <%= @user_details.created_at || '-' %>
+              </div>
+            </div>
+
+
+            <div class="col-md-12">
+              <label class="col-sm-2 control-label">Timezone : </label>
+              <div class="col-sm-10">
+                <%= @user_details.time_zone || '-' %>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <label class="col-sm-2 control-label">Email : </label>
+              <div class="col-sm-10">
+                <%= @user_details.email || '-' %>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <label class="col-sm-2 control-label">Description : </label>
+              <div class="col-sm-10">
+                <%= @user_details.description %>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <h4>Tokens</h4>
+              <ul class="list-group">
+                <% @tokens.each do |type, val| %>
+                  <li class="list-group-item">
+                    <%= type %> : <%= val.join(', ') %>
+                  </li>
+                <% end %>
+              </ul>
+              <hr>
+            </div>
+
+
+            <div class="col-md-12">
+              <h4>Tweets</h4>
+              <ul class="list-group">
+                <% @tweets.map(&:text).each do |tweet| %>
+                  <li class="list-group-item">
+                    <%= tweet %>
+                  </li>
+                <% end %>
+              </ul>
+              <hr>
+            </div>
+
+
+            <div class="col-md-12">
+              <hr>
+            </div>
+
+            <div class="col-md-12">
+              <h4>Actions</h4>
+
+              <div class="btn-group">
+                <div class="btn-group">
+                  <%= link_to 'Try another user', new_tweet_stream_path, class: 'btn btn-info btn-sm' %>
+                </div>
+              </div>
+            </div>
+            <br>
+            <br>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
